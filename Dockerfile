@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y \
   pkg-config \
   nasm \
   libvips-dev
-ARG NODE_ENV=production
+ARG NODE_ENV=development
 ENV NODE_ENV=${NODE_ENV}
 WORKDIR /opt/
 COPY ./package.json ./yarn.lock ./
@@ -22,7 +22,7 @@ RUN yarn build
 
 FROM node:16-bullseye
 RUN apt-get update && apt-get install -y libvips-dev
-ARG NODE_ENV=production
+ARG NODE_ENV=development
 ENV NODE_ENV=${NODE_ENV}
 WORKDIR /opt/
 COPY --from=build /opt/node_modules ./node_modules
