@@ -1,7 +1,15 @@
 
-FROM node:16-alpine as build
+FROM node:16-bullseye-slim AS build
 # Installing libvips-dev for sharp Compatability
-RUN apk update && apk add --no-cache build-base gcc autoconf automake zlib-dev libpng-dev vips-dev > /dev/null 2>&1
+RUN apt-get update && apt-get install -y \
+  build-essential \
+  gcc \
+  autoconf \
+  automake \
+  libtool \
+  pkg-config \
+  nasm \
+  libvips-dev
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
 WORKDIR /opt/
@@ -12,8 +20,8 @@ WORKDIR /opt/app
 COPY ./ .
 RUN yarn build
 
-FROM node:16-alpine
-RUN apk add --no-cache vips-dev
+FROM node:16-bullseye
+RUN apt-get update && apt-get install -y libvips-dev
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
 WORKDIR /opt/
