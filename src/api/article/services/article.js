@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * stati service
+ * article service
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
-module.exports = createCoreService('api::stati.stati');
+module.exports = createCoreService('api::article.article');
