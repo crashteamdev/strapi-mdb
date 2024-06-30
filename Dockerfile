@@ -1,5 +1,5 @@
 
-FROM node:16-bullseye-slim AS build
+FROM node:20-bullseye-slim AS build
 # Installing libvips-dev for sharp Compatability
 RUN apt-get update && apt-get install -y \
   build-essential \
@@ -20,7 +20,7 @@ WORKDIR /opt/app
 COPY ./ .
 RUN yarn build
 
-FROM node:16-bullseye
+FROM node:20-bullseye
 RUN apt-get update && apt-get install -y libvips-dev
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
