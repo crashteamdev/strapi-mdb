@@ -22,7 +22,8 @@
           "localized": true
         }
       },
-      "type": "string"
+      "type": "string",
+      "maxLength": 60
     },
     "Content": {
       "pluginOptions": {
@@ -59,7 +60,28 @@
           "localized": true
         }
       },
-      "type": "string"
+      "type": "string",
+      "maxLength": 155
+    },
+    "slug": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "uid",
+      "targetField": "Title"
+    },
+    "SEO": {
+      "displayName": "SeoArticle",
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.seo-article"
     }
   }
 }

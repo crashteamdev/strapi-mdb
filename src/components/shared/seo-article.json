@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_shared_seo_articles",
+  "info": {
+    "displayName": "SeoArticle",
+    "icon": "book"
+  },
+  "options": {},
+  "attributes": {
+    "metaTitle": {
+      "type": "string"
+    },
+    "metaDescription": {
+      "type": "string"
+    },
+    "shareImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
