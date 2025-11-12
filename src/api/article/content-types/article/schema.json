@@ -82,6 +82,13 @@
         }
       },
       "component": "shared.seo-article"
+    },
+    "site": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::site.site",
+      "inversedBy": "articles",
+      "required": true
     }
   }
 }
